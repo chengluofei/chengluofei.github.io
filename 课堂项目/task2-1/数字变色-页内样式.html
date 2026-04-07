@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页内样式</title>
+
+    <!-- 1. 添加style标签 -->
+    <style>
+
+        /* 通配符选择器 匹配所有的标签 */
+        *{
+           margin: 0; 
+        }
+        
+        /* 标签选择器 匹配所有strong标签 */
+        strong{
+            font-size: 100px;
+            /* color: red; */
+        }
+
+        /* id选择器 匹配id为s1的标签*/
+        #s1{
+            color: rgb(228, 19, 19);
+        }
+        /* id选择器 匹配id为s2的标签*/
+        #s2{
+            color: rgb(255, 136, 0);
+        }
+
+        #s3{
+            color: rgb(255, 166, 0);
+        }
+        #s4{
+            color: rgb(72, 255, 0);
+        }
+
+        #s5{
+            color: rgb(0, 255, 234);
+        }
+
+        #s6{
+            color: rgb(0, 119, 255);
+        }
+
+        /* 类选择器  匹配所有class为xhx的标签*/
+        .xhx{
+            text-decoration: underline;
+        }
+
+    
+    </style>
+
+
+</head>
+<body>
+    <strong id="s1">1</strong>
+    <strong id="s2">2</strong>
+    <strong id="s3">3</strong>
+    <strong id="s4" class="xhx">4</strong>
+    <strong id="s5" class="xhx">5</strong>
+    <strong id="s6" class="xhx">6</strong>
+
+</body>
+</html>
