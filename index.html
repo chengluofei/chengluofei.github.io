@@ -22,7 +22,7 @@
             position: relative;
             
             /* 纸飞机光标 */
-            cursor: url("https://cdn-icons-png.flaticon.com/64/7562/756031.png"), auto;
+            cursor: url("./images/sb.png"), auto;
         }
 
         /* 背景遮罩 */
@@ -117,9 +117,70 @@
                 font-size: 36px;
             }
         }
+
+        /* 随机选择按钮 */
+        #random-select {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: red;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            border: none;
+            cursor: pointer;
+            z-index: 10000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: all 0.1s;
+        }
+
+        #random-select:active {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            transform: translateY(2px);
+        }
+
+        /* 播放音乐按钮 */
+        #play-music {
+            position: fixed;
+            top: 70px;
+            left: 20px;
+            background: transparent;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            border: none;
+            cursor: pointer;
+            z-index: 10000;
+            box-shadow: none;
+            transition: all 0.1s;
+            border: 1px solid rgb(22, 163, 116);
+        }
+
+        #play-music::before {
+            content: "🎶";
+            font-size: 10px;
+            color: rgb(49, 28, 238);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #play-music:active {
+            transform: scale(0.9);
+        }
+
+        /* 选中学生链接样式 */
+        .student-item.selected {
+            background-color: red;
+            color: black;
+        }
     </style>
 </head>
 <body>
+    <button id="random-select"></button>
+    <button id="play-music"></button>
+    <audio id="music" src="music/悠悠的古城中.mp3"></audio>
     <div id="mouse-glow"></div>
 
     <div class="container">
@@ -131,59 +192,60 @@
 
         <!-- 5栏纯文字学生列表 -->
         <div class="student-grid">
-            <a href="#" class="student-item">1号 - 张三</a>
-            <a href="#" class="student-item">2号 - 李四</a>
-            <a href="#" class="student-item">3号 - 王五</a>
-            <a href="#" class="student-item">4号 - 赵六</a>
-            <a href="#" class="student-item">5号 - 钱七</a>
-            <a href="#" class="student-item">6号 - 孙八</a>
-            <a href="#" class="student-item">7号 - 周九</a>
-            <a href="#" class="student-item">8号 - 吴十</a>
-            <a href="#" class="student-item">9号 - 郑十一</a>
-            <a href="#" class="student-item">10号 - 王十二</a>
+            <a href="#" class="student-item">25111090102</a>
+            <a href="https://JIANG-qr.github.io" class="student-item">25111020164</a>
+            <a href="https://pao-pao00.github.io" class="student-item">25101020161</a>
+            <a href="https://zxyhaha00.github.io" class="student-item">25101020107</a>
+            <a href="https://czpy1015.github.io" class="student-item">25061020203</a>
+            <a href="#" class="student-item">25051060137</a>
+            <a href="https://yr202612345.github.io" class="student-item">25051060112</a>
+            <a href="https://Estrella419.github.io" class="student-item">25051040104</a>
+            <a href="https://ricardo-hly.github.io" class="student-item">25051030347</a>
+            <a href="https://1011394794.github.io" class="student-item">25051030346</a>
 
-            <a href="#" class="student-item">11号 - 学生</a>
-            <a href="#" class="student-item">12号 - 学生</a>
-            <a href="#" class="student-item">13号 - 学生</a>
-            <a href="#" class="student-item">14号 - 学生</a>
-            <a href="#" class="student-item">15号 - 学生</a>
-            <a href="#" class="student-item">16号 - 学生</a>
-            <a href="#" class="student-item">17号 - 学生</a>
-            <a href="#" class="student-item">18号 - 学生</a>
-            <a href="#" class="student-item">19号 - 学生</a>
-            <a href="#" class="student-item">20号 - 学生</a>
+            <a href="https://milaidou051.github.io" class="student-item">25051030345</a>
+            <a href="#" class="student-item">25051030343</a>
+            <a href="https://ranjiouruoli.github.io" class="student-item">25051030342</a>
+            <a href="https://meiyuqi77.github.io" class="student-item">25051030341</a>
+            <a href="https://xiaoqi602.github.io" class="student-item">25051030340</a>
+            <a href="https://ylmyy.github.io" class="student-item">25051030339</a>
+            <a href="https://MIIYwii.github.io" class="student-item">25051030336</a>
+            <a href="#" class="student-item">25051030335</a>
+            <a href="https://zhangjingxuan1130.github.io" class="student-item">25051030334</a>
+            <a href="https://QUZIJIAN.github.io" class="student-item">25051030333</a>
 
-            <a href="#" class="student-item">21号 - 学生</a>
-            <a href="#" class="student-item">22号 - 学生</a>
-            <a href="#" class="student-item">23号 - 学生</a>
-            <a href="#" class="student-item">24号 - 学生</a>
-            <a href="#" class="student-item">25号 - 学生</a>
-            <a href="#" class="student-item">26号 - 学生</a>
-            <a href="#" class="student-item">27号 - 学生</a>
-            <a href="#" class="student-item">28号 - 学生</a>
-            <a href="#" class="student-item">29号 - 学生</a>
-            <a href="#" class="student-item">30号 - 学生</a>
+            <a href="https://rmr666.github.io" class="student-item">25051030332</a>
+            <a href="#" class="student-item">25051030331</a>
+            <a href="https://zsybobo.github.io" class="student-item">25051030329</a>
+            <a href="https://lfyto.github.io/" class="student-item">25051030328</a>
+            <a href="https://mdzsgy.github.io" class="student-item">25051030326</a>
+            <a href="https://chenmouo.github.io" class="student-item">25051030325</a>
+            <a href="https://xgy789.github.io" class="student-item">25051030324</a>
+            <a href="https://liaoyaxuan1.github.io" class="student-item">25051030323</a>
+            <a href="#" class="student-item">25051030322</a>
+            <a href="https://huhui11.github.io" class="student-item">25051030321</a>
 
-            <a href="#" class="student-item">31号 - 学生</a>
-            <a href="#" class="student-item">32号 - 学生</a>
-            <a href="#" class="student-item">33号 - 学生</a>
-            <a href="#" class="student-item">34号 - 学生</a>
-            <a href="#" class="student-item">35号 - 学生</a>
-            <a href="#" class="student-item">36号 - 学生</a>
-            <a href="#" class="student-item">37号 - 学生</a>
-            <a href="#" class="student-item">38号 - 学生</a>
-            <a href="#" class="student-item">39号 - 学生</a>
-            <a href="#" class="student-item">40号 - 学生</a>
+            <a href="https://zmdlb7h-spec.github.io" class="student-item">25051030320</a>
+            <a href="https://evodestiny.github.io/" class="student-item">25051030319</a>
+            <a href="https://evodestiny.github.io/" class="student-item">25051030318</a>
+            <a href="https://mcl070518.github.io" class="student-item">25051030317</a>
+            <a href="https://hanboge123.github.io" class="student-item">25051030316</a>
+            <a href="https://zkwwjy.github.io" class="student-item">25051030315</a>
+            <a href="https://aqwe1118.github.io" class="student-item">25051030314</a>
+            <a href="https://lxrxu.github.io" class="student-item">25051030313</a>
+            <a href="https://pyy-iyv77.github.io/" class="student-item">25051030312</a>
+            <a href="https://passion708.github.io/" class="student-item">25051030311</a>
+            <a href="https://zhouzhouaagsjn.github.io" class="student-item">25051030309</a>
 
-            <a href="#" class="student-item">41号 - 学生</a>
-            <a href="#" class="student-item">42号 - 学生</a>
-            <a href="#" class="student-item">43号 - 学生</a>
-            <a href="#" class="student-item">44号 - 学生</a>
-            <a href="#" class="student-item">45号 - 学生</a>
-            <a href="#" class="student-item">46号 - 学生</a>
-            <a href="#" class="student-item">47号 - 学生</a>
-            <a href="#" class="student-item">48号 - 学生</a>
-            <a href="#" class="student-item">49号 - 学生</a>
+            <a href="#" class="student-item">25051030308</a>
+            <a href="https://ACB35146.github.io" class="student-item">25051030307</a>
+            <a href="https://duanzhufeng.github.io" class="student-item">25051030306</a>
+            <a href="https://cook345.github.io" class="student-item">25051030305</a>
+            <a href="https://ddq6.github.io" class="student-item">25051030303</a>
+            <a href="#" class="student-item">25051030302</a>
+            <a href="https://sybfk.github.io/" class="student-item">25051030301</a>
+            <a href="#" class="student-item">25051020222</a>
+            
         </div>
     </div>
 
@@ -193,6 +255,27 @@
         document.addEventListener('mousemove', (e) => {
             mouseGlow.style.left = e.clientX + 'px';
             mouseGlow.style.top = e.clientY + 'px';
+        });
+
+        // 随机选择学生按钮
+        const button = document.getElementById('random-select');
+        button.addEventListener('click', () => {
+            const items = document.querySelectorAll('.student-item');
+            if (items.length === 0) return;
+            const randomIndex = Math.floor(Math.random() * items.length);
+            items.forEach(item => item.classList.remove('selected'));
+            items[randomIndex].classList.add('selected');
+        });
+
+        // 播放音乐按钮
+        const playButton = document.getElementById('play-music');
+        const music = document.getElementById('music');
+        playButton.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
         });
     </script>
 </body>
