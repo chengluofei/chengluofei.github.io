@@ -1,19 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人教学站点</title>
+    <title>25计应3班 - 作业展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        /* 页面背景 */
+        body {
+            min-height: 100vh;
+            background: url('https://picsum.photos/id/1042/1920/1080') no-repeat center center fixed;
+            background-size: cover;
+            font-family: "Microsoft YaHei", sans-serif;
+            overflow-x: hidden;
+            position: relative;
+            
+            /* 纸飞机光标 */
+            cursor: url("https://cdn-icons-png.flaticon.com/64/7562/756031.png"), auto;
+        }
+
+        /* 背景遮罩 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        /* 主容器 */
+        .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 标题渐变动画 */
+        .title {
+            font-size: 52px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5, #ff6b6b, #feca57);
+            background-size: 400% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 50px;
+            animation: textGradient 5s linear infinite;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* 固定 5 栏布局 */
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px 0; /* 只保留上下间距，无卡片背景 */
+        }
+
+        /* 纯文字学生样式 —— 无卡片！无背景！无边框！ */
+        .student-item {
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px rgba(255,255,255,0.3);
+            
+            /* 纸飞机光标 */
+            cursor: url("https://cdn-icons-png.flaticon.com/64/7562/756031.png"), auto;
+        }
+
+        /* 悬停动画：变色 + 轻微上浮 + 发光 */
+        .student-item:hover {
+            color: #00d2ff;
+            transform: translateY(-3px);
+            text-shadow: 0 0 15px #00d2ff;
+        }
+
+        /* 鼠标炫光效果 */
+        #mouse-glow {
+            position: fixed;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(0, 210, 255, 0.8);
+            box-shadow: 0 0 12px rgba(0, 210, 255, 1);
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.08s ease;
+            mix-blend-mode: screen;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 小屏幕适配 */
+        @media (max-width: 992px) {
+            .student-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .title {
+                font-size: 36px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>网页设计课程</h1>
+    <div id="mouse-glow"></div>
 
-    <ol>
-        <li> <a href="homework/css作业/index.html">CSS的作业</a> </li>
-       
+    <div class="container">
+        <h1 class="title">25计应3班作业</h1>
 
+        <!-- 5栏纯文字学生列表 -->
+        <div class="student-grid">
+            <a href="#" class="student-item">1号 - 张三</a>
+            <a href="#" class="student-item">2号 - 李四</a>
+            <a href="#" class="student-item">3号 - 王五</a>
+            <a href="#" class="student-item">4号 - 赵六</a>
+            <a href="#" class="student-item">5号 - 钱七</a>
+            <a href="#" class="student-item">6号 - 孙八</a>
+            <a href="#" class="student-item">7号 - 周九</a>
+            <a href="#" class="student-item">8号 - 吴十</a>
+            <a href="#" class="student-item">9号 - 郑十一</a>
+            <a href="#" class="student-item">10号 - 王十二</a>
 
-    </ol>
+            <a href="#" class="student-item">11号 - 学生</a>
+            <a href="#" class="student-item">12号 - 学生</a>
+            <a href="#" class="student-item">13号 - 学生</a>
+            <a href="#" class="student-item">14号 - 学生</a>
+            <a href="#" class="student-item">15号 - 学生</a>
+            <a href="#" class="student-item">16号 - 学生</a>
+            <a href="#" class="student-item">17号 - 学生</a>
+            <a href="#" class="student-item">18号 - 学生</a>
+            <a href="#" class="student-item">19号 - 学生</a>
+            <a href="#" class="student-item">20号 - 学生</a>
 
+            <a href="#" class="student-item">21号 - 学生</a>
+            <a href="#" class="student-item">22号 - 学生</a>
+            <a href="#" class="student-item">23号 - 学生</a>
+            <a href="#" class="student-item">24号 - 学生</a>
+            <a href="#" class="student-item">25号 - 学生</a>
+            <a href="#" class="student-item">26号 - 学生</a>
+            <a href="#" class="student-item">27号 - 学生</a>
+            <a href="#" class="student-item">28号 - 学生</a>
+            <a href="#" class="student-item">29号 - 学生</a>
+            <a href="#" class="student-item">30号 - 学生</a>
+
+            <a href="#" class="student-item">31号 - 学生</a>
+            <a href="#" class="student-item">32号 - 学生</a>
+            <a href="#" class="student-item">33号 - 学生</a>
+            <a href="#" class="student-item">34号 - 学生</a>
+            <a href="#" class="student-item">35号 - 学生</a>
+            <a href="#" class="student-item">36号 - 学生</a>
+            <a href="#" class="student-item">37号 - 学生</a>
+            <a href="#" class="student-item">38号 - 学生</a>
+            <a href="#" class="student-item">39号 - 学生</a>
+            <a href="#" class="student-item">40号 - 学生</a>
+
+            <a href="#" class="student-item">41号 - 学生</a>
+            <a href="#" class="student-item">42号 - 学生</a>
+            <a href="#" class="student-item">43号 - 学生</a>
+            <a href="#" class="student-item">44号 - 学生</a>
+            <a href="#" class="student-item">45号 - 学生</a>
+            <a href="#" class="student-item">46号 - 学生</a>
+            <a href="#" class="student-item">47号 - 学生</a>
+            <a href="#" class="student-item">48号 - 学生</a>
+            <a href="#" class="student-item">49号 - 学生</a>
+        </div>
+    </div>
+
+    <script>
+        // 纸飞机光标 + 移动炫光
+        const mouseGlow = document.getElementById('mouse-glow');
+        document.addEventListener('mousemove', (e) => {
+            mouseGlow.style.left = e.clientX + 'px';
+            mouseGlow.style.top = e.clientY + 'px';
+        });
+    </script>
 </body>
 </html>
